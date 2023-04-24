@@ -1,0 +1,29 @@
+package club.chuanghua.util;
+
+//import org.junit.Test;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.logging.SimpleFormatter;
+
+public class MyDate {
+    //获得前七天的日期，便于数据统计
+    public ArrayList<String> day;
+
+    public MyDate() {
+        day = new ArrayList<String>();
+        Calendar date = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd");
+
+        for (int i = 0; i < 7; i++) {
+            date.setTime(new Date());
+            date.add(Calendar.DATE, -i);
+            day.add(sdf.format(date.getTime()));
+        }
+//        System.out.println(day.toString());
+
+    }
+
+}

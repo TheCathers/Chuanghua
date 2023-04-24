@@ -1,0 +1,63 @@
+<%@page contentType="text/html;charset=utf-8" language="java" %>
+<jsp:include page="head.jsp"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/statics/css/check.css">
+
+<!--主页面-->
+<div class="main">
+
+    <c:forEach var="topicsecc" items="${topices}">
+    <div class='msg'>
+        <!--话题用户信息-->
+        <div class='info'>
+            <span class='msg-user'>${topicsecc.id}</span>
+            <span class='msg-user'>${topicsecc.creatBy}</span>
+            <span class='msg-time'>${topicsecc.creationDate}</span>
+        </div>
+        <!--留言-->
+        <div class='msg-content'>
+            ${topicsecc.title}<br>
+            ${topicsecc.content}<br>
+        </div>
+        <!--审核-->
+        <div class="bar-clearfix">
+            <div class="check">
+<%--                <a href="${pageContext.request.contextPath}/deletetopic">通过</a>--%>
+<%--            <form action="${pageContext.request.contextPath}/addTopic" method="post">--%>
+    <a href="${pageContext.request.contextPath}/uptopic?id=${topicsecc.id}">
+        <input id="pass" type="submit" value="通过" class="pass" name="pass"  >
+    </a>&nbsp;&nbsp;|&nbsp; <a href="${pageContext.request.contextPath}/deletetopic?id=${topicsecc.id}">
+    <input id="reject" type="submit" value="驳回" class="reject" name="reject">
+<%--    </a>--%>
+<%--                </c:forEach>--%>
+
+            </div>
+        </div>
+        <hr>
+    </div>
+    </c:forEach>><%--    </form>--%>
+</div>
+<%--留言--%>
+<%--<div class="main">--%>
+<%--    <div class='msg'>--%>
+<%--        <!--留言用户信息-->--%>
+<%--        <div class='info'>--%>
+<%--            <span class='msg-user'>留言人</span>--%>
+<%--            <span class='msg-time'>留言时间：2021-02-28 16:46:23</span>--%>
+<%--        </div>--%>
+<%--        <!--留言-->--%>
+<%--        <div class='msg-content'>--%>
+<%--            留言内容，留言内容，留言内容，留言内容，留言内容，留言内容，留言内容。--%>
+<%--        </div>--%>
+<%--        <!--审核-->--%>
+<%--        <div class="bar-clearfix">--%>
+<%--            <div class="check">--%>
+<%--                <input type="submit" value="通过" class="pass" name="pass">--%>
+<%--                <input type="submit" value="驳回" class="reject" name="reject">--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <hr>--%>
+<%--    </div>--%>
+</div>
+
+</body>
+</html>

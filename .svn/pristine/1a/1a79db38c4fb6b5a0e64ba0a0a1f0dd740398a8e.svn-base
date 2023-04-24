@@ -1,0 +1,23 @@
+package club.chuanghua.pojo;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Comment {
+    private int id;
+    private String content;
+    private int like;
+    private int commentObject;
+    private String state;
+    private int creatBy;
+    private Date creationDate;
+    private int modifyBy;
+    private Date modifyDate;
+}
+

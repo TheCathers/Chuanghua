@@ -1,0 +1,37 @@
+<%@page contentType="text/html;charset=utf-8" language="java" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/statics/css/post.css">
+
+<%--发帖页--%>
+<jsp:include page="/head.jsp"/>
+
+<div  class="box">
+
+    <form action="${pageContext.request.contextPath}/addTopic" method="post">
+
+        <table class="table-control" >
+            <tr>
+                <td>标题：</td>
+                <td><input type="text" name="title" id="title" value="请输入标题" required></td>
+
+                <td>所属分区：</td>
+                <td><select name="type" id="type" required>
+                    <option>科学</option>
+                    <option>音乐</option>
+                    <option>舞蹈</option>
+                    <option>动漫</option>
+                    <option>运动</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>内容：</td>
+                <td><div class="ct-textarea"><textarea name="content" id="txt-control" required></textarea></div></td>
+            </tr>
+        </table>
+        <input type="submit" value="发 布" class="btn" name="submit">
+            <div class="anony">
+                <td><input type="checkbox" name="anonymous"> 匿名发帖</td>
+            </div>
+    </form>
+</div>
+</body>
+</html>

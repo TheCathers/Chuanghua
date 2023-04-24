@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.subnav-control{
+    width: 1200px;
+    margin: auto;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.head{
+    height: 42px;
+    margin: 30px auto;
+}
+.logo{
+    float: left;
+    width: 198px;
+    height: 42px;
+    margin-left: 330px;
+    margin-top: 5px;
+
+}
+.nav{
+    float: left;
+    margin-left:130px;
+}
+.nav ul li{
+    float: left;
+    margin: 0 15px;
+}
+.nav ul li a{
+    display: block;
+    height: 42px;
+    padding: 0 10px;
+    font-size: 18px;
+    line-height: 42px;
+    color: #050505;
+}
+.banner{
+    margin-left: -100px;
+}
+.nav ul li a:hover {
+    border-bottom: 2px solid #00a4ff;
+    color: #00a4ff;
+}
+.serach{
+    float: left;
+    width: 412px;
+    height: 42px;
+    background-color: skyblue;
+    margin-left: 60px;
+}
+#src-text{
+    float: left;
+    width: 345px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    border-right: 0;
+    color: #bfbfbf;
+    font-size: 14px;
+    padding-left: 15px;
+}
+.btn-serach{
+    float: left;
+    width: 50px;
+    height: 42px;
+    background-color: #00a4ff;
+    color: #ffffff;
+    border: 0;
+    cursor: pointer;
+}
+.subnav-control{
+    height: 421px;
+}
+.subnav{
+    width: 190px;
+    height: 421px;
+}
+.subnav ul li{
+    height: 60px;
+    line-height: 45px;
+    padding: 0 20px;
+}
+.subnav ul li a{
+    font-size: 18px;
+    color: #666;
+}
+.subnav ul li a:hover{
+    border-bottom: 2px solid #00a4ff;
+    color: #00a4ff;
+}
+.main{
+    position: absolute;
+    right: 20%;
+    top: 10%;
+    width: 1000px;
+    height: 80%;
+    background-color: lightblue;
+}
+.check{
+    transform:translateX(50%);
+}
+.pass{
+    background-image: url("icon/勾.png");/*设置小图标*/
+    background-size: 25px 25px;/*小图标的大小*/
+    background-position: 5px 4px;/*小图标在input的位置*/
+    background-repeat: no-repeat;/*背景小图标不重复*/
+    padding: 8px 10px 8px 40px;/*设置input内边距*/
+    /*设置input样式好看*/
+    border:1px solid #ddd;
+    margin: 30px;
+    width: 150px;
+    cursor: pointer;
+}
+.reject{
+    background-image: url("icon/叉.png");/*设置小图标*/
+    background-size: 25px 25px;/*小图标的大小*/
+    background-position: 5px 4px;/*小图标在input的位置*/
+    background-repeat: no-repeat;/*背景小图标不重复*/
+    padding: 8px 10px 8px 40px;/*设置input内边距*/
+    /*设置input样式好看*/
+    border:1px solid #ddd;
+    margin: 30px;
+    width: 150px;
+    cursor: pointer;
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="club.chuanghua.dao.topic.TopicMapper">
+    <insert id="addTopic" parameterType="Topic">
+            insert into topic (`type` , title, content, `like`,state,creatBy, creationDate, modifyBy, modifyDate)
+            values (#{type},#{title},#{content},#{like},#{state}, #{creatBy},#{creationDate},#{modifyBy},#{modifyDate});
+        </insert>
+
+<!--    <delete id="delTopicById" parameterType="int">-->
+<!--        delete from chuanghua.topic where id=#{id}-->
+<!--    </delete>-->
+
+    <!--    <update id="updateTopic" parameterType="int">-->
+    <!--         update chuanghua.topic set   interest=#{interest},title=#{title},content=#{content},creatBy=#{creatBy}, creationDatewhen=#{creationDatewhen}-->
+    <!--         where id=#{id};-->
+    <!--    </update>-->
+
+    <select id="queryTopicById" resultType="Topic">
+        select * from chuanghua.topic where id=#{id}
+    </select>
+
+    <select id="queryTopicByType" resultType="Topic">
+        select * from chuanghua.topic
+        where `type` =#{type}
+    </select>
+    <select id="queryAllTopic" resultType="Topic">
+        select * from chuanghua.topic
+    </select>
+
+    <select id="queryHotTopic" resultType="Topic">
+        select * from chuanghua.topic where `like`>10
+    </select>
+
+    <select id="topicCount" resultType="int">
+        select count(*) from `topic`
+    </select>
+
+    <select id="topicCountByDate" resultType="int">
+        select count(*) from `topic` where datediff(now(),creationDate)>#{days}
+    </select>
+
+    <!--查询全部没有审核的话题-->
+    <select id="Unaudited" resultType="Topic">
+        select * from chuanghua.topic where state=#{state}
+    </select>
+
+    <select id="queryTopicByCreator" resultType="Topic">
+        select * from chuanghua.topic where `creatBy`=#{id}
+    </select>
+</mapper>

@@ -1,0 +1,54 @@
+package club.chuanghua.util;
+
+import club.chuanghua.service.commentService.CommentService;
+import club.chuanghua.service.topicService.TopicService;
+import club.chuanghua.service.userService.UserService;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class Data {
+    public int userCount;
+    public int topicCount;
+    public int commentCount;
+    //前七天的数据
+    public Map<String, Integer> userCounts;
+    public Map<String, Integer> topicCounts;
+    public Map<String, Integer> commentCounts;
+
+    //初始化
+    public Data() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserService userService = (UserService) context.getBean("userServiceImpl");
+        TopicService topicService = (TopicService) context.getBean("topicServiceImpl");
+        CommentService commentService = (CommentService) context.getBean("commentServiceImpl");
+        userCount = userService.userCount();
+        topicCount = topicService.topicCount();
+        commentCount = commentService.commentCount();
+
+        userCounts = new LinkedHashMap<String, Integer>();
+        topicCounts = new LinkedHashMap<String, Integer>();
+        commentCounts = new LinkedHashMap<String, Integer>();
+        MyDate date = new MyDate();
+        for (int i = 0; i < 7; i++) {
+            userCounts.put(date.day.get(i), userService.userCountByDate(i));
+            topicCounts.put(date.day.get(i), topicService.topicCountByDate(i));
+            commentCounts.put(date.day.get(i), commentService.commentCountByDate(i));
+        }
+    }
+
+//    @Test
+//    public void test(){
+//        Data data = new Data();
+//        System.out.println(data.userCounts.toString());
+//    }
+
+
+}

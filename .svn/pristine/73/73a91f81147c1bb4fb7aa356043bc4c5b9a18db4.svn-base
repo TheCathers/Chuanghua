@@ -1,0 +1,96 @@
+/*
+SQLyog Community v13.1.6 (64 bit)
+MySQL - 5.7.20-log : Database - chuanghua
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`chuanghua` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `chuanghua`;
+
+/*Table structure for table `comment` */
+
+DROP TABLE IF EXISTS `comment`;
+
+CREATE TABLE `comment` (
+  `id` int(10) NOT NULL,
+  `content` text COMMENT '评论内容',
+  `like` int(10) DEFAULT NULL COMMENT '点赞数',
+  `commentObject` int(10) DEFAULT NULL COMMENT '评论对象',
+  `state` varchar(5) DEFAULT NULL COMMENT '状态（审核中，已发布）',
+  `creatBy` varchar(20) DEFAULT NULL,
+  `creationDate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `modifyBy` int(10) DEFAULT NULL,
+  `modifyDate` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `comment` */
+
+insert  into `comment`(`id`,`content`,`like`,`commentObject`,`state`,`creatBy`,`creationDate`,`modifyBy`,`modifyDate`) values 
+(1,'年轻人的第一个项目。',5,1,'已发布','ZhouSit','2021-02-20 00:00:00',NULL,'2021-03-10 11:29:44');
+
+/*Table structure for table `topic` */
+
+DROP TABLE IF EXISTS `topic`;
+
+CREATE TABLE `topic` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `type` varchar(10) DEFAULT NULL COMMENT '话题分类',
+  `title` varchar(100) NOT NULL COMMENT '标题',
+  `content` text COMMENT '内容',
+  `like` int(10) NOT NULL COMMENT '点赞数',
+  `state` varchar(5) DEFAULT NULL COMMENT '状态（审核中，已发布）',
+  `creatBy` varchar(20) DEFAULT NULL,
+  `creationDate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `modifyBy` int(10) DEFAULT NULL,
+  `modifyDate` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+/*Data for the table `topic` */
+
+insert  into `topic`(`id`,`type`,`title`,`content`,`like`,`state`,`creatBy`,`creationDate`,`modifyBy`,`modifyDate`) values 
+(1,'science','Hello,World!','年轻人的第一个项目。',20,'已发布','ZhouSit','2021-03-02 13:26:09',NULL,'2021-03-10 11:29:27'),
+(3,'music','aisdgiaudsgh','dasdasdkjgas',0,'已发布','ZhouSit','2021-03-10 13:05:00',0,'2021-03-10 13:48:14'),
+(4,'science','fgdoishsdf','dasiadshgiausd',0,'已发布','ZhouSit','2021-03-10 13:06:00',0,'2021-03-10 13:48:37');
+
+/*Table structure for table `user` */
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `userRole` varchar(10) NOT NULL DEFAULT '普通用户' COMMENT '用户角色',
+  `email` varchar(20) DEFAULT NULL,
+  `creatBy` int(10) NOT NULL,
+  `creationDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifyBy` int(10) DEFAULT NULL,
+  `modifyDate` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+
+/*Data for the table `user` */
+
+insert  into `user`(`id`,`username`,`password`,`userRole`,`email`,`creatBy`,`creationDate`,`modifyBy`,`modifyDate`) values 
+(1,'ZhouSit','1234567','管理员','758725259@qq.com',1,'2021-02-20 00:00:00',1,'2021-03-09 23:43:41'),
+(2,'Linxinhua','123456','管理员','2812409188@qq.com',1,'2021-02-27 16:52:26',1,'2021-02-27 16:52:48'),
+(3,'Leiqide','123456','管理员','2287329869@qq.com',1,'2021-02-27 16:53:27',1,'2021-02-27 16:53:51'),
+(4,'Zhenwenhao','123456','管理员','3267794019@qq.com',1,'2021-02-27 16:54:21',1,'2021-02-27 16:54:56'),
+(5,'sh2ina','123456','管理员','542108402@qq.com',1,'2021-02-27 16:55:48',1,'2021-02-27 16:55:48'),
+(15,'ZhouSit1','1234567','普通用户','1641586@qq.com',0,'2021-03-09 23:25:00',0,NULL);
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

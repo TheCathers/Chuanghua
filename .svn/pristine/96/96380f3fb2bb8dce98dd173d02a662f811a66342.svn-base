@@ -1,0 +1,23 @@
+package club.chuanghua.pojo;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Topic {
+    private int id;
+    private String type;
+    private String title;
+    private String content;
+    private int like;
+    private String state;
+    private int creatBy;
+    private Date creationDate=new Date();
+    private int modifyBy;
+    private Date modifyDate;
+}

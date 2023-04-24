@@ -1,0 +1,126 @@
+*{margin:0;padding: 0}
+body{
+    /* background: linear-gradient(to bottom, #40405c 0%, #6f71aa 40%, #8a76ab 70%); */
+    background:url(/statics/icon/beijing.jpg);
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    
+}
+li{
+    list-style-type: none;
+}
+.top{
+    height: 50px;
+    text-align: left;
+    background-color: rgba(255,255,255,0.7);
+    background-size: 100px
+}
+
+/*登录注册框*/
+.usebar{
+    margin-left: 75%;
+
+}
+/*用户登录框*/
+.usericon{
+    margin-left: 100px;
+    width: 50px;
+}
+/*菜单*/
+.menu{
+    background-color: rgba(0,102,255,0.7);
+    height: 40px;
+}
+/*导航*/
+.nav{
+    position: fixed;
+    height: 100%;
+    width: 200px;
+    background-color: white;
+}
+.nav-link-ul{
+    height: 36px;
+    align-items: center;
+    margin-top: -40px;
+    margin-left: 180px;
+}
+.nav-link-item{
+    float: left;
+    margin-left: 80px;
+    font-family: 微软雅黑;
+    color: lightblue;
+    font-size: 18px;
+}
+.nav-link-ul ul li a:hover{
+    border-bottom: 2px solid #00a4ff;
+    color: #00a4ff;
+}
+.logo{
+    margin-left: 50px;
+    margin-top: -53px;
+}
+/*顶部*/
+
+/*留言板区域*/
+/* 定义查看留言区域的样式 */
+.msg{
+    background: white;
+    margin: 5px 0px 5px 0px;
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+}
+.msg .info{
+    overflow: hidden;
+}
+/*发表人*/
+.msg .info .msg-user{
+    float: left;
+    color: green;
+    margin: 5px 0 0 2px;
+}
+/*消息时间*/
+.msg .info .msg-time{
+    float: right;
+    color: blue;
+    margin: 5px 2px 0 0;
+}
+/*消息内容*/
+.msg .msg-content{
+    width: 100%;
+    margin: 5px 0 5px 0px;
+    padding: 0 0 5px 0;
+}
+/*点赞按钮*/
+.up{
+    transform:translateX(20%);
+}
+.up-config{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+}
+/*#btn-comment{*/
+/*    background: none;*/
+/*    background-image: url("/icon/评论.png");*/
+/*    background-repeat: no-repeat;*/
+/*    border: none;*/
+/*    width: 35px;*/
+/*    height: 35px;*/
+/*    text-indent: -9999px;*/
+/*    background-size: 25px 25px;*/
+/*    cursor: pointer;*/
+/*    outline: none;*/
+/*    transform: translateX(60%);*/
+/*}*/
+#comment{
+    display: none;
+}
+
+

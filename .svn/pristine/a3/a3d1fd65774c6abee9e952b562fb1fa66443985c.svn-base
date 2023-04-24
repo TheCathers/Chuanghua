@@ -1,0 +1,23 @@
+package club.chuanghua.controller;
+
+import club.chuanghua.pojo.Comment;
+import club.chuanghua.service.commentService.CommentService;
+import club.chuanghua.service.topicService.TopicService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
+
+public class CommentController {
+    @Autowired
+    @Qualifier("commentServiceImpl")
+    private CommentService commentService;
+
+    @RequestMapping("viewComments")
+    public void viewComments(Model model,int id){
+        List<Comment> comments = commentService.queryCommentById(id);
+        model.addAttribute("comments",comments);
+    }
+}

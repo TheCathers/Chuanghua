@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="club.chuanghua.dao.comment.CommentMapper">
+
+    <update id="updateComment" parameterType="int">
+        update chuanghua.comment set `state`='已发布'
+        where id=#{id}
+    </update>
+
+    <delete id="delCommentById" parameterType="int">
+        delete from chuanghua.comment where id=#{id}
+    </delete>
+
+    <select id="queryCommentByCreator" resultType="Comment">
+        select * from `comment` where creatBy=#{creator}
+    </select>
+
+    <select id="queryCommentById" resultType="Comment">
+        select * from `comment` where commentObject=#{id}
+    </select>
+
+    <select id="commentCount" resultType="int">
+        select count(*) from `comment`
+    </select>
+
+    <select id="commentCountByDate" resultType="int">
+        select count(*) from `comment` where datediff(now(),creationDate)>#{days}
+    </select>
+
+    <select id="unaudited" resultType="Comment">
+        select * from chuanghua.comment where state=#{state}
+    </select>
+
+</mapper>

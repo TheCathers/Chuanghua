@@ -1,0 +1,56 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=utf-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/statics/css/index.css">
+    <%--    <script type="text/javascript" src="${pageContext.request.contextPath}statics/js/commentUnfold.js"></script>--%>
+
+</head>
+<body>
+<!--顶部-->
+<div class="top">
+    <div class="usebar"><a href="/goHomePage" id="ubl"><img src="statics/icon/用户.png" alt="" class="usericon"></a></div>
+    <div class="logo">
+        <a href="index.jsp"><img src="statics/icon/logo.png" alt="" width="50px" height="50px"></a>
+    </div>
+    <ul class="nav-link-ul">
+        <li class="nav-link-item"><a href="${pageContext.request.contextPath}/classifyTopic?type=all">首页</a></li>
+        <li class="nav-link-item"><a href="${pageContext.request.contextPath}/classifyTopic?type=science">科学</a></li>
+        <li class="nav-link-item"><a href="${pageContext.request.contextPath}/classifyTopic?type=music">音乐</a></li>
+        <li class="nav-link-item"><a href="${pageContext.request.contextPath}/classifyTopic?type=dance">舞蹈</a></li>
+        <li class="nav-link-item"><a href="${pageContext.request.contextPath}/classifyTopic?type=cartoon">动漫</a></li>
+        <li class="nav-link-item"><a href="${pageContext.request.contextPath}/classifyTopic?type=sport">运动</a></li>
+        <li class="nav-link-item"><a href="${pageContext.request.contextPath}/classifyTopic?type=hot">热门</a></li>
+    </ul>
+</div>
+<!--主页面-->
+<div class="main">
+    <c:forEach var="topic" items="${topics}">
+    <div class='msg'>
+        <div class='info'>
+            <span class='msg-user'>匿名用户</span>
+            <span class='msg-time'>${topic.getCreationDate()}</span>
+        </div>
+        <div class='msg-content'>
+            <a href="${pageContext.request.contextPath}topicDetails?id=${topic.getId()}">
+                <span class='msg-content'>${topic.getTitle()}<br></span>
+            </a>
+                ${topic.getContent()}
+        </div>
+            <%--        <div class="cmt-txt">--%>
+            <%--            <form action="">--%>
+            <%--                <textarea name="comment-txt" id="comment-txt" cols="30" rows="10" placeholder="请说说您的想法"></textarea>--%>
+            <%--                <input type="submit" name="sub-comment" class="sub-comment" value="发表评论">--%>
+            <%--            </form>--%>
+            <%--        </div>--%>
+        </c:forEach>
+
+    </div>
+    <a href="${pageContext.request.contextPath}/goAddTopic">创建话题</a>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=utf-8" language="java" %>
+<jsp:include page="head.jsp"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/statics/css/check.css">
+<script type="text/javascript" src="statics/js/jquery-1.8.3.min.js"></script>
+
+<!--主页面-->
+<div class="main">
+
+    <c:forEach var="topic" items="${topics}">
+    <div class='msg'>
+        <!--话题用户信息-->
+        <div class='info'>
+            <input hidden id="topicId" type="text" value="${topic.getId()}">
+            <span class='msg-user'>${topic.getCreatBy()}</span>
+            <span class='msg-time'>${topic.getCreationDate()}</span>
+        </div>
+        <!--留言-->
+        <div class='msg-content'>
+            ${topic.getTitle()}<br>
+            ${topic.getContent()}<br>
+        </div>
+        <!--审核-->
+        <div class="bar-clearfix">
+            <div class="check">
+                <input id="topicPass"  onclick="topicPass()" type="button" value="通过" class="pass">
+                <img width="25px" id="topicStatus">
+                <input id="topicReject" onclick="topicReject()" type="button" value="驳回" class="reject" name="reject">
+            </div>
+        </div>
+        <hr>
+    </div><br>
+    </c:forEach>><%--    </form>--%>
+</div>
+<%--&lt;%&ndash;留言&ndash;%&gt;--%>
+<%--<div class="main">--%>
+<%--    <c:forEach var="comment" items="${comments}">--%>
+<%--    <div class='msg'>--%>
+<%--        <!--留言用户信息-->--%>
+<%--        <div class='info'>--%>
+<%--            <input hidden id="commentId" type="text" value="${comment.getId()}">--%>
+<%--            <span class='msg-user'>${comment.getCreatBy()}</span>--%>
+<%--            <img width="25px" id="commentStatus">--%>
+<%--            <span class='msg-time'>${comment.getCreationDate()}</span>--%>
+<%--        </div>--%>
+<%--        <!--留言-->--%>
+<%--        <div class='msg-content'>--%>
+<%--            ${comment.getContent}--%>
+<%--            <span>--%>
+<%--                <a target="_blank" href="${pageContext.request.contextPath}topicDetails?id=${comment.getCommentObject()}">--%>
+<%--                    查看详情</a>--%>
+<%--            </span>--%>
+<%--        </div>--%>
+<%--        <!--审核-->--%>
+<%--        <div class="bar-clearfix">--%>
+<%--            <div class="check">--%>
+<%--                <input id="commentPass" type="button" onclick="commentPass()" value="通过" class="pass" name="pass">--%>
+<%--                <input id="commentReject" type="button" onclick="commentReject()" value="驳回" class="reject" name="reject">--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <hr>--%>
+<%--    </div>--%>
+<%--    </c:forEach>--%>
+<%--</div>--%>
+
+</body>
+
+<script>
+    function topicPass() {
+        $.ajax({
+            type:"post",
+            url:"topicPass",
+            data:{id:$("#topicId").val()},
+            success:function (data) {
+                if(data.success==="success"){
+                    document.getElementById("topicPass").style.visibility="hidden"
+                    document.getElementById("topicReject").style.visibility="hidden"
+                    document.getElementById("topicStatus").src = "/statics/icon/y.png"
+                }
+            }
+        })
+    }
+    function topicReject() {
+        $.ajax({
+            type:"post",
+            url:"topicReject",
+            data:{id:$("#topicId").val()},
+            success:function (data) {
+                if(data.success==="success"){
+                    document.getElementById("topicPass").style.visibility="hidden"
+                    document.getElementById("topicReject").style.visibility="hidden"
+                    document.getElementById("topicStatus").src = "/statics/icon/n.png"
+                }
+            }
+        })
+    }
+
+    function commentPass() {
+        $.ajax({
+            type:"post",
+            url:"commentPass",
+            data:{id:$("#commentId").val()},
+            success:function (data) {
+                if(data.success==="success"){
+                    document.getElementById("commentPass").style.visibility="hidden"
+                    document.getElementById("commentReject").style.visibility="hidden"
+                    document.getElementById("commentStatus").src = "/statics/icon/y.png"
+                }
+            }
+        })
+    }
+
+    function commentReject() {
+        $.ajax({
+            type:"post",
+            url:"commentReject",
+            data:{id:$("#commentId").val()},
+            success:function (data) {
+                if(data.success==="success"){
+                    document.getElementById("commentPass").style.visibility="hidden"
+                    document.getElementById("commentReject").style.visibility="hidden"
+                    document.getElementById("commentStatus").src = "/statics/icon/n.png"
+                }
+            }
+        })
+    }
+</script>
+</html>

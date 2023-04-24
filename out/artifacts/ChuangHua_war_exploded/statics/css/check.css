@@ -1,0 +1,194 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul a{
+    display: block;
+
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+.subnav hr{
+    width: 199px;
+    background-color: #E1E2E5;
+    height: 1px;
+    border: none;
+}
+.subnav-control{
+    width: 1200px;
+    margin: auto;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.head{
+    height: 42px;
+    margin: 30px auto;
+}
+.logo{
+    float: left;
+    width: 198px;
+    height: 42px;
+    margin-left: 330px;
+    margin-top: 5px;
+
+}
+.nav{
+    float: left;
+    margin-left:130px;
+}
+.nav ul li{
+    float: left;
+    margin: 0 15px;
+}
+.nav ul li a{
+    display: block;
+    height: 42px;
+    padding: 0 10px;
+    font-size: 18px;
+    line-height: 42px;
+    color: #050505;
+}
+.banner{
+    /*margin-left: 335px;*/
+    /*margin-top: -5px;*/
+    position: absolute;
+    margin-left: 18%;
+    background-color: #FAFAFA;
+    width: 200px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px #909090;
+    height: 500px;
+}
+.nav ul li a:hover {
+    border-bottom: 2px solid #00a4ff;
+    color: #00a4ff;
+}
+.serach{
+    float: left;
+    width: 412px;
+    height: 42px;
+    background-color: skyblue;
+    margin-left: 60px;
+}
+#src-text{
+    float: left;
+    width: 345px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    border-right: 0;
+    color: #bfbfbf;
+    font-size: 14px;
+    padding-left: 15px;
+}
+.btn-serach{
+    float: left;
+    width: 50px;
+    height: 42px;
+    background-color: #00a4ff;
+    color: #ffffff;
+    border: 0;
+    cursor: pointer;
+}
+.subnav-control{
+    height: 421px;
+}
+.subnav{
+    width: 200px;
+    height: 421px;
+}
+.subnav ul li{
+    height: 60px;
+    line-height: 45px;
+    padding: 0 20px;
+}
+.subnav ul li a{
+    font-size: 18px;
+    color: #666;
+}
+.nav-link-item:hover{
+    border-bottom: 3px solid #00a4ff;
+    color: #00a4ff;
+    background-color: rgb(225,228,234);
+    transition-duration: 0.1s;
+}
+.main{
+    position: absolute;
+    margin-left: 28.5%;
+    width: 1000px;
+    height: 800px;
+    background-color: white;
+    box-shadow: 2px 2px 10px #909090;
+    /*滚动条*/
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /*滚动条*/
+}
+.check{
+    transform:translateX(50%);
+}
+.nav-title{
+    color: #D8A2BC;
+    padding: 10px 10px 20px;
+}
+.nav-link-item-check:hover{
+    border-bottom: 3px solid #00a4ff;
+    color: #00a4ff;
+    background-color: rgb(225,228,234);
+    transition-duration: 0.1s;
+    padding-bottom: 100px;
+}
+.drop-down-content{
+    padding: 0;
+    display: none;
+}
+.drop-down-content li:hover a{
+    color: #00a4ff;
+    background-color: rgb(225,228,234);
+    transition-duration: 0.1s;
+}
+.nav-link-item-check:hover .drop-down-content{
+    display: block;
+}
+.pass{
+    background-image: url("/statics/icon/勾.png");/*设置小图标*/
+    background-size: 25px 25px;/*小图标的大小*/
+    background-position: 5px 4px;/*小图标在input的位置*/
+    background-repeat: no-repeat;/*背景小图标不重复*/
+    padding: 8px 10px 8px 40px;/*设置input内边距*/
+    /*设置input样式好看*/
+    border:1px solid #ddd;
+    margin: 30px;
+    width: 150px;
+    cursor: pointer;
+    background-color: rgba(0,164,255);
+}
+.pass:hover{
+    border: 1px solid black;
+}
+.reject{
+    background-image: url("/statics/icon/叉.png");/*设置小图标*/
+    background-size: 25px 25px;/*小图标的大小*/
+    background-position: 5px 4px;/*小图标在input的位置*/
+    background-repeat: no-repeat;/*背景小图标不重复*/
+    padding: 8px 10px 8px 40px;/*设置input内边距*/
+    /*设置input样式好看*/
+    border:1px solid #ddd;
+    margin: 30px;
+    width: 150px;
+    cursor: pointer;
+}
+.reject:hover{
+    border: 1px solid black;
+}
+fieldset{
+    margin:0 auto;
+    line-height: 200%;
+    padding: 5px 15px;
+    color: #00a4ff;
+}

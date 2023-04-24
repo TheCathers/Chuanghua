@@ -1,0 +1,29 @@
+package club.chuanghua.pojo;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Topic {
+    private int id;
+    private String type;
+    private String title;
+    private String content;
+    private int like;
+    private String state;
+    private String creatBy;
+    private Date creationDate=new Date();
+    private int modifyBy;
+    private Date modifyDate;
+
+    public String getCreationDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        return sdf.format(creationDate);
+    }
+}

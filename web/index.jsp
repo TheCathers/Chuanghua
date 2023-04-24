@@ -1,0 +1,40 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=utf-8" language="java" %>
+
+
+<jsp:include page="head.jsp"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/statics/css/index.css">
+<%--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>--%>
+<!--主页面-->
+<img src="statics/icon/写.png" alt="" width="35px" height="35px"><a href="${pageContext.request.contextPath}/goAddTopic">创建话题</a>
+<div class="main">
+    <form action="${pageContext.request.contextPath}/allTopic">
+        <input type="hidden" name="pageIndex" value="1"/>
+    </form>
+
+    <c:forEach var="topic" items="${topics}">
+    <div class='msg'>
+        <div class='info'>
+            <div class="msg-icon"><img src="statics/icon/头像.jpg" alt="" width="50px" height="50px"></div>
+            <span class='msg-user'>匿名用户</span>
+            <span class='msg-time'>${topic.getCreationDate()}</span>
+        </div>
+        <div class='msg-content'>
+            <a href="${pageContext.request.contextPath}topicDetails?id=${topic.getId()}">
+               <h1 style="font-size: 20px">${topic.getTitle()}<br></h1>
+            </a>
+                <p>${topic.getContent()}</p>
+            <br>
+        </div>
+    </div>
+    </c:forEach>
+    <input type="hidden" id="totalPageCount" value="${pageUtil.totalPageCount}"/>
+</div>
+    <c:import url="rollPage.jsp">
+        <c:param name="totalCount" value="${pageUtil.totalCount}"></c:param>
+        <c:param name="currentPageNo" value="${pageUtil.currentPageNo}"></c:param>
+        <c:param name="totalPageCount" value="${pageUtil.totalPageCount}"></c:param>
+    </c:import>
+</body>
+
+</html>

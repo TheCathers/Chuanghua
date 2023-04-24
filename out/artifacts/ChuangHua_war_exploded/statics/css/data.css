@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.subnav-control{
+    width: 1200px;
+    margin: auto;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.head{
+    height: 42px;
+    margin: 30px auto;
+}
+.logo{
+    float: left;
+    width: 198px;
+    height: 42px;
+    margin-left: 330px;
+    margin-top: 5px;
+
+}
+.nav{
+    float: left;
+    margin-left:130px;
+}
+.nav ul li{
+    float: left;
+    margin: 0 15px;
+}
+.nav ul li a{
+    display: block;
+    height: 42px;
+    padding: 0 10px;
+    font-size: 18px;
+    line-height: 42px;
+    color: #050505;
+}
+.banner{
+    position: absolute;
+    margin-left: 18%;
+    background-color: #FAFAFA;
+    width: 200px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px #909090;
+    height: 500px;
+}
+.nav ul li a:hover {
+    border-bottom: 2px solid #00a4ff;
+    color: #00a4ff;
+}
+.nav-link-item:hover{
+    border-bottom: 3px solid #00a4ff;
+    color: #00a4ff;
+    background-color: rgb(225,228,234);
+    transition-duration: 0.1s;
+}
+.nav-title{
+    color: #D8A2BC;
+    padding: 10px 10px 20px;
+}
+.serach{
+    float: left;
+    width: 412px;
+    height: 42px;
+    background-color: skyblue;
+    margin-left: 60px;
+}
+#src-text{
+    float: left;
+    width: 345px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    border-right: 0;
+    color: #bfbfbf;
+    font-size: 14px;
+    padding-left: 15px;
+}
+.btn-serach{
+    float: left;
+    width: 50px;
+    height: 42px;
+    background-color: #00a4ff;
+    color: #ffffff;
+    border: 0;
+    cursor: pointer;
+}
+.subnav-control{
+    height: 421px;
+}
+.subnav{
+    width: 200px;
+    height: 421px;
+}
+.subnav ul li{
+    height: 60px;
+    line-height: 45px;
+    padding: 0 20px;
+}
+.subnav ul li a{
+    font-size: 18px;
+    color: #666;
+}
+.main{
+    position: absolute;
+    margin-left: 28.5%;
+    width: 1000px;
+    height: 800px;
+    background-color: white;
+    box-shadow: 2px 2px 10px #909090;
+}
+.userdata{
+    background-color: #ebf8fc;
+    width: 200px ;
+    height: 100px;
+    margin-left: 100px;
+    margin-top: 50px;
+    float: left;
+    color: #837575;
+}

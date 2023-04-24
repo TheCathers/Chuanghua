@@ -1,0 +1,58 @@
+package club.chuanghua.controller;
+
+import club.chuanghua.pojo.User;
+import club.chuanghua.service.userService.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
+
+@Controller
+public class UserController {
+
+    @Autowired
+    @Qualifier("userServiceImpl")
+    private UserService userService;
+
+    //用户注册
+    @RequestMapping("/register")
+    public ModelAndView register(String username) {
+
+        Map<String, String> map = new HashMap<String, String>();
+        if (userService.selectSingleUser(username) != null) {
+            map.put("result", "exist");
+        } else {
+            map.put("result", "true");
+        }
+
+        return new ModelAndView(new MappingJackson2JsonView(), map);
+
+    }
+
+    @RequestMapping("/addUser")
+    public String addUser(User user){
+        userService.addUser(user);
+        return "login";
+    }
+
+    //跳转到个人主页
+    @RequestMapping("goHomePage")
+    public String goHomePage(HttpSession session) {
+        User user = (User) session.getAttribute("loginUserInfo");
+        if (user.getUserRole().equals("管理员"))
+            return "WEB-INF/jsp/adminHomePage";
+        else {
+            return "WEB-INF/jsp/userHomePage";
+        }
+    }
+
+
+}
+
+

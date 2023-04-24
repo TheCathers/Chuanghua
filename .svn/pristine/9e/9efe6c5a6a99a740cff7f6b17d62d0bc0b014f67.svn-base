@@ -1,0 +1,23 @@
+package club.chuanghua.Interceptor;
+
+import org.springframework.web.servlet.HandlerInterceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+public class LoginInterceptor implements HandlerInterceptor {
+
+    //登录拦截
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        HttpSession session = request.getSession();
+        if(session.getAttribute("loginUserInfo")==null){
+            request.getRequestDispatcher("/login.jsp");
+            return false;
+        }else {
+            return true;
+        }
+
+    }
+}

@@ -1,0 +1,82 @@
+// /**
+//  * 注册页面的ajax提示
+//  */
+// var username = null;
+// var password = null;
+// var confirm = null;
+// var email = null;
+// var hint=null;
+// var register = null;
+//
+//
+// $(function () {
+//     username = $("#username")
+//     password = $("#password")
+//     confirm = $("#confirm")
+//     email =$("#email")
+//     hint=$("#hint")
+//     register = $("#register")
+//
+//
+//     password.next().html("*");
+//     confirm.next().html("*");
+//
+//     username.on("blur", function () {
+//         $.ajax({
+//             type: "GET",
+//             url: "/register",
+//             data: {method: "register", username: username.val()},
+//             data_type: "json",
+//             success: function (data) {
+//                 if (data.result == "true") {//用户名不存在，可以注册
+//                     validateTip(username.next(), {"color": "green"}, imgYes, true);
+//                 } else if (data.result == "exist") {//用户名已存在
+//                     validateTip(hint, {"color": "red"}, imgNo + "用户名已存在", false);
+//                 }
+//             },
+//             error: function (data) {
+//                 validateTip(hint, {"color": "red"}, imgNo + "请求错误", false);
+//             }
+//         })
+//     })
+//
+//     password.on("blur", function () {
+//         validateTip(hint, {"color": "#666666"}, " *密码长度必须是大于6小于20", false);
+//     }).on("blur", function () {
+//         if (password.val() != null && password.val().length > 6 && password.val().length < 20) {
+//             validateTip(password.next(), {"color": "green"}, imgYes, true);
+//         } else {
+//             validateTip(hint, {"color": "red"}, imgNo + "密码输入不符合规范，请重新输入", false);
+//         }
+//     })
+//
+//     confirm.on("blur", function () {
+//         validateTip(confirm.next(), {"color": "#666666"}, "* 请输入与上面一致的密码", false);
+//     }).on("blur", function () {
+//         if (confirm.val() != null && password.val().length > 6
+//             && confirm.val().length < 20 && password.val() === confirm.val()) {
+//             validateTip(confirm.next(), {"color": "green"}, imgYes, true);
+//         } else {
+//             validateTip(hint, {"color": "red"}, imgNo + " 两次密码输入不一致，请重新输入", false);
+//         }
+//     });
+//
+//     email.on("blur",function () {
+//
+//     })
+//
+//     register.on("click", function () {
+//         username.blur();
+//         password.blur();
+//         confirm.blur();
+//         if (username.attr("validateStatus") === "true"
+//             && password.attr("validateStatus") === "true"
+//             && confirm.attr("validateStatus") === "true") {
+//             if (confirm("确认注册？")) {
+//                 $("#registerFrom").submit();
+//             }
+//         }
+//     })
+//
+// });
+

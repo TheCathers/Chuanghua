@@ -1,0 +1,70 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=utf-8" language="java" %>
+<jsp:include page="head.jsp"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/statics/css/check.css">
+<script type="text/javascript" src="statics/js/jquery-1.8.3.min.js"></script>
+留言
+<div class="main">
+    <c:forEach var="comment" items="${comments}" varStatus="status">
+    <div class='msg'>
+        <!--留言用户信息-->
+        <div class='info'>
+            <input hidden id="commentId${status.index}" type="text" value="${comment.getId()}">
+            <span class='msg-user'>${comment.getCreatBy()}</span>
+            <span class='msg-time'>${comment.getCreationDate()}</span>
+        </div>
+        <!--留言-->
+        <div class='msg-content'>
+            ${comment.getContent()}
+            <span>
+                <a target="_blank" href="${pageContext.request.contextPath}topicDetails?id=${comment.getCommentObject()}">
+                    查看详情</a>
+            </span>
+        </div>
+        <!--审核-->
+        <div class="bar-clearfix">
+            <div class="check">
+                <input id="commentPass${status.index}" type="button" onclick="commentPass(${status.index})" value="通过" class="pass" name="pass">
+                <img width="25px" id="commentStatus${status.index}">
+                <input id="commentReject${status.index}" type="button" onclick="commentReject(${status.index})" value="驳回" class="reject" name="reject">
+            </div>
+        </div>
+        <hr>
+    </div>
+    </c:forEach>
+</div>
+</body>
+<script>
+    function commentPass(status) {
+        let cid="#commentId"+status
+        $.ajax({
+            type:"post",
+            url:"commentPass",
+            data:{id:$(cid).val()},
+            success:function (data) {
+                if(data.success==="success"){
+                    document.getElementById("commentPass"+status).style.visibility="hidden"
+                    document.getElementById("commentReject"+status).style.visibility="hidden"
+                    document.getElementById("commentStatus"+status).src = "/statics/icon/y.png"
+                }
+            }
+        })
+    }
+
+    function commentReject(status) {
+        let cid="#commentId"+status
+        $.ajax({
+            type:"post",
+            url:"commentReject",
+            data:{id:$(cid).val()},
+            success:function (data) {
+                if(data.success==="success"){
+                    document.getElementById("commentPass"+status).style.visibility="hidden"
+                    document.getElementById("commentReject"+status).style.visibility="hidden"
+                    document.getElementById("commentStatus"+status).src = "/statics/icon/n.png"
+                }
+            }
+        })
+    }
+</script>
+</html>
